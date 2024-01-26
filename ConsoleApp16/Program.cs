@@ -9,7 +9,7 @@ IConfigurationRoot config = new ConfigurationBuilder()
     .Build();
 
 string deploymentName = config["OpenAI:DeploymentName"] ?? throw new InvalidOperationException("OpenAI:DeploymentName is not set.");
-string modelId = config["OpenAI:ModelId"] ?? throw new InvalidOperationException("OpenAI:ModelId is not set.");
+//string modelId = config["OpenAI:ModelId"] ?? throw new InvalidOperationException("OpenAI:ModelId is not set.");
 string endpoint = config["OpenAI:Endpoint"] ?? throw new InvalidOperationException("OpenAI:BaseUrl is not set.");
 string key = config["OpenAI:Key"] ?? throw new InvalidOperationException("OpenAI:Key is not set.");
 
