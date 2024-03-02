@@ -7,7 +7,30 @@ public class WeatherPlugin
 {
     private readonly HttpClient _client = new();
 
-    [KernelFunction, Description("天気を取得する場所コードを取得します。")]
+    [KernelFunction, Description("""
+        天気を取得する場所コードを取得します。
+        対応している場所コードは下記のとおりです。
+        下記に含まれない場所の場合は近くの場所の天気を代わりに取得してください。
+        東京
+        横浜
+        名古屋
+        京都
+        静岡
+        福井
+        新潟
+        富山
+        金沢
+        岐阜
+        長野
+        高山
+        松本
+        大津
+        大阪
+        札幌
+        仙台
+        福岡
+        那覇
+        """)]
     public static int GetPlaceId([Description("天気を取得する場所")] string place)
     {
         var res = place switch
