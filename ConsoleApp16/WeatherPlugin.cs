@@ -60,7 +60,7 @@ public class WeatherPlugin
     }
 
     [KernelFunction, Description("場所コードの地域の天気を返す")]
-    public async Task<string> Weather([Description("場所コード")]int place)
+    public async Task<string> Weather([Description("場所コード")] int place)
     {
         return (await _client.GetAsync($"https://www.jma.go.jp/bosai/forecast/data/forecast/{place}.json")).Content.ReadAsStringAsync().Result;
     }

@@ -1,6 +1,8 @@
 ﻿using Azure.Identity;
 using ConsoleApp16;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
 
@@ -10,17 +12,16 @@ IConfigurationRoot config = new ConfigurationBuilder()
     .Build();
 
 string deploymentName = config["OpenAI:DeploymentName"] ?? throw new InvalidOperationException("OpenAI:DeploymentName is not set.");
-//string modelId = config["OpenAI:ModelId"] ?? throw new InvalidOperationException("OpenAI:ModelId is not set.");
 string endpoint = config["OpenAI:Endpoint"] ?? throw new InvalidOperationException("OpenAI:BaseUrl is not set.");
-//string key = config["OpenAI:Key"] ?? throw new InvalidOperationException("OpenAI:Key is not set.");
 
-Kernel kernel = Kernel.CreateBuilder()
- .AddAzureOpenAIChatCompletion(
-    deploymentName,
-    endpoint,
-    new DefaultAzureCredential()).Build();
-
-kernel.Plugins.AddFromType<WeatherPlugin>();
+var builder = Kernel.CreateBuilder();
+builder.AddAzureOpenAIChatCompletion(
+   deploymentName,
+   endpoint,
+   new DefaultAzureCredential()).Build();
+builder.Services.AddLogging(c => c.AddDebug().SetMinimumLevel(LogLevel.Trace));
+builder.Plugins.AddFromType<WeatherPlugin>();
+Kernel kernel = builder.Build();
 
 OpenAIPromptExecutionSettings? setting = new()
 {
