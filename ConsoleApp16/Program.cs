@@ -20,6 +20,7 @@ builder.AddAzureOpenAIChatCompletion(
    endpoint,
    new DefaultAzureCredential()).Build();
 builder.Services.AddLogging(c => c.AddDebug().SetMinimumLevel(LogLevel.Trace));
+builder.Services.AddSingleton<HttpClient>();
 builder.Plugins.AddFromType<WeatherPlugin>();
 Kernel kernel = builder.Build();
 

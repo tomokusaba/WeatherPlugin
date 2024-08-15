@@ -3,10 +3,20 @@ using System.ComponentModel;
 
 namespace ConsoleApp16;
 
-public class WeatherPlugin
+/// <summary>
+/// 天気を取得するプラグイン
+/// </summary>
+/// <param name="client"></param>
+public class WeatherPlugin(HttpClient client)
 {
-    private readonly HttpClient _client = new();
+    private readonly HttpClient _client = client;
 
+    /// <summary>
+    /// 天気を取得する場所コードを取得します
+    /// </summary>
+    /// <param name="place">天気を取得する場所</param>
+    /// <returns>天気コード</returns>
+    /// <exception cref="ArgumentException">対応してない地域の場合</exception>
     [KernelFunction, Description("""
         天気を取得する場所コードを取得します。
         対応している場所コードは下記のとおりです。
@@ -59,10 +69,17 @@ public class WeatherPlugin
         return res;
     }
 
+    /// <summary>
+    /// 場所コードの地域の天気を返す
+    /// </summary>
+    /// <param name="place">場所コード</param>
+    /// <returns>天気情報</returns>
     [KernelFunction, Description("場所コードの地域の天気を返す")]
     public async Task<string> Weather([Description("場所コード")] int place)
     {
-        return (await _client.GetAsync($"https://www.jma.go.jp/bosai/forecast/data/forecast/{place}.json")).Content.ReadAsStringAsync().Result;
+        var response = await _client.GetAsync($"https://www.jma.go.jp/bosai/forecast/data/forecast/{place}.json");
+        response.EnsureSuccessStatusCode();
+        return await response.Content.ReadAsStringAsync();
     }
 
 }
