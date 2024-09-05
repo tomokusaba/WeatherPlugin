@@ -22,6 +22,9 @@ public class WeatherPlugin(HttpClient client)
         対応している場所コードは下記のとおりです。
         下記に含まれない場所の場合は近くの場所の天気を代わりに取得してください。
         東京
+        群馬
+        埼玉
+        千葉
         横浜
         名古屋
         京都
@@ -40,11 +43,17 @@ public class WeatherPlugin(HttpClient client)
         仙台
         福岡
         那覇
+        ----
+        以上、ここに含まれない場合は近くの場所の代わりに取得してください。
         """)]
     public static int GetPlaceId([Description("天気を取得する場所")] string place)
     {
         var res = place switch
         {
+            "札幌" => 016000,
+            "群馬" => 100000,
+            "埼玉" => 110000,
+            "千葉" => 120000,
             "東京" => 130000,
             "横浜" => 140000,
             "名古屋" => 230000,
@@ -60,7 +69,6 @@ public class WeatherPlugin(HttpClient client)
             "松本" => 200000,
             "大津" => 250000,
             "大阪" => 270000,
-            "札幌" => 016000,
             "仙台" => 040000,
             "福岡" => 400000,
             "那覇" => 471000,
