@@ -19,7 +19,7 @@ var builder = Kernel.CreateBuilder();
 builder.AddAzureOpenAIChatCompletion(
    deploymentName,
    endpoint,
-   new DefaultAzureCredential()).Build();
+   new DefaultAzureCredential());
 
 builder.Services.AddLogging(c => c.AddDebug().SetMinimumLevel(LogLevel.Trace));
 builder.Services.AddSingleton<HttpClient>();
