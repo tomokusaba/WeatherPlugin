@@ -12,9 +12,9 @@
     <PackageReference Include="Azure.Identity" Version="1.12.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="8.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
-    <PackageReference Include="Microsoft.SemanticKernel" Version="1.21.1" />
-    <PackageReference Include="Microsoft.SemanticKernel.Core" Version="1.21.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.1" />
+    <PackageReference Include="Microsoft.SemanticKernel" Version="1.22.0" />
+    <PackageReference Include="Microsoft.SemanticKernel.Core" Version="1.22.0" />
     <PackageReference Include="Microsoft.SemanticKernel.Plugins.Core" Version="1.20.0-alpha" />
   </ItemGroup>
 
