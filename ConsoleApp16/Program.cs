@@ -51,7 +51,7 @@ while (true)
 
     chatHistory.AddUserMessage(input);
 
-    if (input == "exit")
+    if (string.IsNullOrEmpty(input))
     {
         break;
     }
