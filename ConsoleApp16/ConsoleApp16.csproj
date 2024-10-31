@@ -13,8 +13,8 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.0-rc.2.24473.5" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.0-rc.2.24473.5" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.0-rc.2.24473.5" />
-    <PackageReference Include="Microsoft.SemanticKernel" Version="1.25.0" />
-    <PackageReference Include="Microsoft.SemanticKernel.Core" Version="1.25.0" />
+    <PackageReference Include="Microsoft.SemanticKernel" Version="1.26.0" />
+    <PackageReference Include="Microsoft.SemanticKernel.Core" Version="1.26.0" />
     <PackageReference Include="Microsoft.SemanticKernel.Plugins.Core" Version="1.22.0-alpha" />
   </ItemGroup>
 
