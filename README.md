@@ -7,8 +7,9 @@ Azure OpenAI Serviceが前提になっています。
 {
   "OpenAI": {
     "DeploymentName": "デプロイ名",
-    "Endpoint": "エンドポイント",
-    "Key": "API Key"
+    "Endpoint": "エンドポイント"
   }
 }
 ```
+
+また、Azure Open ServiceのリソースにマネージドIDを構成してください。
