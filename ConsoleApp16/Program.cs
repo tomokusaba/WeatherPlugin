@@ -34,12 +34,15 @@ OpenAIPromptExecutionSettings? setting = new()
     ToolCallBehavior = ToolCallBehavior.AutoInvokeKernelFunctions,
     MaxTokens = 2000,
 };
-
+Dictionary<string, object> extensionData = new()
+{
+    ["MaxTokens"] = 2000,
+    ["Temperature"] = 1,
+};
 PromptExecutionSettings promptExecutionSettings = new()
 {
     FunctionChoiceBehavior = FunctionChoiceBehavior.Auto(),
-    
-    
+    ExtensionData = extensionData
 };
 
 while (true)
