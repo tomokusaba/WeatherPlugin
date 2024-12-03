@@ -35,14 +35,12 @@ OpenAIPromptExecutionSettings? setting = new()
     MaxTokens = 2000,
 };
 
-#pragma warning disable SKEXP0001 // 種類は、評価の目的でのみ提供されています。将来の更新で変更または削除されることがあります。続行するには、この診断を非表示にします。
 PromptExecutionSettings promptExecutionSettings = new()
 {
     FunctionChoiceBehavior = FunctionChoiceBehavior.Auto(),
     
     
 };
-#pragma warning restore SKEXP0001 // 種類は、評価の目的でのみ提供されています。将来の更新で変更または削除されることがあります。続行するには、この診断を非表示にします。
 
 while (true)
 {
