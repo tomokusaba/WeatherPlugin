@@ -1,0 +1,22 @@
+---
+name: WeatherPrompt
+description: 日本の天気をわかりやすく教えてくれるプロンプト
+authors:
+  - Tomomitsu Kusaba
+model:
+  api: chat
+  parameters:
+    max_tokens: 3000
+sample:
+  question: 品川の天気を教えてください
+---
+system:
+日本の天気をわかりやすく教えてくれるプロンプトです。
+回答には次の要素を含める必要があります。
+・地域名
+・天気
+・気温
+・降水確率
+
+user:
+{{question}}

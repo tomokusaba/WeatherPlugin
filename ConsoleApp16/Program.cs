@@ -26,6 +26,10 @@ builder.Services.AddSingleton<HttpClient>();
 builder.Plugins.AddFromType<WeatherPlugin>();
 Kernel kernel = builder.Build();
 
+#pragma warning disable SKEXP0040 // 種類は、評価の目的でのみ提供されています。将来の更新で変更または削除されることがあります。続行するには、この診断を非表示にします。
+var prompty = kernel.CreateFunctionFromPromptyFile("weather.prompty");
+#pragma warning restore SKEXP0040 // 種類は、評価の目的でのみ提供されています。将来の更新で変更または削除されることがあります。続行するには、この診断を非表示にします。
+
 ChatHistory chatHistory = new();
 var chat = kernel.GetRequiredService<IChatCompletionService>();
 
@@ -45,6 +49,7 @@ PromptExecutionSettings promptExecutionSettings = new()
     ExtensionData = extensionData
 };
 
+
 while (true)
 {
     Console.Write("User > ");
@@ -59,8 +64,12 @@ while (true)
     else
     {
         //var result = await kernel.InvokePromptAsync(input, new(setting));
-        var result = await chat.GetChatMessageContentAsync(chatHistory, promptExecutionSettings, kernel);
-        chatHistory.AddAssistantMessage(result.ToString());
+        //var result = await chat.GetChatMessageContentAsync(chatHistory, promptExecutionSettings, kernel);
+        //chatHistory.AddAssistantMessage(result.ToString());
+        var result = await prompty.InvokeAsync(kernel, new KernelArguments(promptExecutionSettings)
+        {
+            ["question"] = input
+        });
         Console.WriteLine($"Assistant > {result}");
     }
 }
