@@ -54,7 +54,7 @@ while (true)
     Console.Write("User > ");
     string input = Console.ReadLine()!;
 
-    chatHistory.AddUserMessage(input);
+    //chatHistory.AddUserMessage(input);
 
     if (string.IsNullOrEmpty(input))
     {
