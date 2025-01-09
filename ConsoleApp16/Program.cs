@@ -46,9 +46,8 @@ Dictionary<string, object> extensionData = new()
 PromptExecutionSettings promptExecutionSettings = new()
 {
     FunctionChoiceBehavior = FunctionChoiceBehavior.Auto(),
-    ExtensionData = extensionData
+    //ExtensionData = extensionData
 };
-
 
 while (true)
 {
