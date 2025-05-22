@@ -9,6 +9,12 @@ namespace ConsoleApp16;
 /// <param name="client"></param>
 public class WeatherPlugin(HttpClient client)
 {
+    /// <summary>
+    /// Represents the HTTP client used to send requests and receive responses from a resource identified by a URI.
+    /// </summary>
+    /// <remarks>This field is initialized with an instance of <see cref="HttpClient"/> and is intended for
+    /// use in making HTTP requests. It is marked as readonly to ensure the same instance is used throughout the
+    /// lifetime of the containing class.</remarks>
     private readonly HttpClient _client = client;
 
     /// <summary>
