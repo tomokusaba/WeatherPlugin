@@ -1,6 +1,6 @@
 ---
 name: WeatherPrompt
-description: ���{�̓V�C���킩��₷�������Ă����v�����v�g
+description: 日本の天気を簡潔に説明するプロンプト
 authors:
   - Tomomitsu Kusaba
 model:
@@ -8,15 +8,15 @@ model:
   parameters:
     max_tokens: 3000
 sample:
-  question: �i��̓V�C�������Ă�������
+  question: 品川の天気を教えてください
 ---
 system:
-���{�̓V�C���킩��₷�������Ă����v�����v�g�ł��B
-�񓚂ɂ͎��̗v�f���܂߂�K�v������܂��B
-�E�n�於
-�E�V�C
-�E�C��
-�E�~���m��
+日本の天気をわかりやすく教えてくれるプロンプトです。
+回答には次の要素を含める必要があります。
+・地域名
+・天気
+・気温
+・降水確率
 
 user:
 {{question}}
